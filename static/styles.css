@@ -4,12 +4,14 @@
     --text:#12131a;
     --muted:#6b7280;
     --line:#e5e7eb;
-    --pill-ritel:#e6f7ef;
-    --pill-ritel-text:#0f7a49;
-    --pill-asing:#efe6ff;
-    --pill-asing-text:#5a3aa3;
-    --pill-institusi:#eaf2ff;
-    --pill-institusi-text:#184aa8;
+    --pill-ritel:#fef3c7;
+    --pill-ritel-text:#92400e;
+    --pill-asing:#fee2e2;
+    --pill-asing-text:#dc2626;
+    --pill-institusi:#f3e8ff;
+    --pill-institusi-text:#7c3aed;
+    --pill-bumn:#dcfce7;
+    --pill-bumn-text:#166534;
     --btn:#f3f4f6;
     --btn-text:#1f2937;
     --btn-active:#111827;
@@ -160,6 +162,7 @@
   .tag.ritel{background:var(--pill-ritel);color:var(--pill-ritel-text)}
   .tag.asing{background:var(--pill-asing);color:var(--pill-asing-text)}
   .tag.institusi{background:var(--pill-institusi);color:var(--pill-institusi-text)}
+  .tag.bumn{background:var(--pill-bumn);color:var(--pill-bumn-text)}
   
   .foot{margin-top:14px;color:var(--muted);font-size:12px}
 

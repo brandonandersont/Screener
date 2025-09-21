@@ -30,6 +30,7 @@
           <span class="tag ritel">Ritel</span>
           <span class="tag asing">Asing</span>
           <span class="tag institusi">Institusi</span>
+          <span class="tag bumn">BUMN</span>
         </p>
       </div>
 
@@ -44,6 +45,7 @@
           <button class="btn chip" data-filter="ritel" aria-pressed="false">Ritel</button>
           <button class="btn chip" data-filter="asing" aria-pressed="false">Asing</button>
           <button class="btn chip" data-filter="institusi" aria-pressed="false">Institusi</button>
+          <button class="btn chip" data-filter="bumn" aria-pressed="false">BUMN</button>
         </div>
       </div>
 
@@ -81,7 +83,7 @@
           <tr data-category="institusi"><td>BZ</td><td>Batavia Prosperindo Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- C -->
-          <tr data-category="ritel institusi"><td>CC</td><td>Mandiri Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="ritel institusi bumn"><td>CC</td><td>Mandiri Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag institusi">Institusi</span> <span class="tag bumn">BUMN</span></td></tr>
           <tr data-category="ritel"><td>CD</td><td>Mega Capital Sekuritas (InvestasiKu)</td><td><span class="tag ritel">Ritel</span></td></tr>
           <tr data-category="asing"><td>CG</td><td>Citigroup Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="asing"><td>CP</td><td>KB Valbury Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag asing">Asing</span></td></tr>
@@ -94,7 +96,7 @@
           <tr data-category="asing"><td>DP</td><td>DBS Vickers Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="asing"><td>DR</td><td>RHB Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="institusi"><td>DU</td><td>KAF Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
-          <tr data-category="institusi"><td>DX</td><td>Bahana Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi bumn"><td>DX</td><td>Bahana Sekuritas</td><td><span class="tag institusi">Institusi</span> <span class="tag bumn">BUMN</span></td></tr>
 
           <!-- E -->
           <tr data-category="institusi"><td>EL</td><td>Evergreen Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -136,7 +138,7 @@
           <tr data-category="asing"><td>KZ</td><td>CLSA Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
 
           <!-- L -->
-          <tr data-category="ritel"><td>LG</td><td>Trimegah Sekuritas Indonesia</td><td><span class="tag ritel">Ritel</span></td></tr>
+          <tr data-category="institusi"><td>LG</td><td>Trimegah Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>LH</td><td>Royal Investium Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>LS</td><td>Reliance Sekuritas Indonesia Tbk.</td><td><span class="tag institusi">Institusi</span></td></tr>
 
@@ -148,10 +150,10 @@
           <tr data-category="institusi"><td>MU</td><td>Minna Padi Investama Sekuritas Tbk</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- N -->
-          <tr data-category="ritel institusi"><td>NI</td><td>BNI Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="ritel institusi bumn"><td>NI</td><td>BNI Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag institusi">Institusi</span> <span class="tag bumn">BUMN</span></td></tr>
 
           <!-- O -->
-          <tr data-category="institusi"><td>OD</td><td>Danareksa Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi bumn"><td>OD</td><td>Danareksa Sekuritas</td><td><span class="tag institusi">Institusi</span> <span class="tag bumn">BUMN</span></td></tr>
           <tr data-category="institusi"><td>OK</td><td>Net Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- P -->
@@ -300,7 +302,7 @@
 
 
     // State
-    const activeFilters = new Set(); // ritel / asing / institusi
+    const activeFilters = new Set(); // ritel / asing / institusi / bumn
     let currentStockPage = 1;
     let currentStockQuery = '';
     let stockTotalPages = 1;
