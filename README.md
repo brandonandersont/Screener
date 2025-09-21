@@ -14,6 +14,8 @@ This application combines a broker screener with news scraping functionality.
 
 ## Setup
 
+### Local Development
+
 1. Install Python dependencies:
    ```bash
    pip install -r requirements.txt
@@ -24,7 +26,40 @@ This application combines a broker screener with news scraping functionality.
    python app.py
    ```
 
-3. Open your browser and go to `http://localhost:5000`
+3. Open your browser and go to `http://localhost:5001`
+
+## Deployment Options
+
+### Option 1: Railway (Recommended)
+1. Go to [Railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Railway will automatically detect the Python app and deploy it
+4. Your app will be available at a Railway-provided URL
+
+### Option 2: Heroku
+1. Install Heroku CLI
+2. Create a Heroku app:
+   ```bash
+   heroku create your-app-name
+   ```
+3. Deploy:
+   ```bash
+   git push heroku main
+   ```
+
+### Option 3: Render
+1. Go to [Render.com](https://render.com)
+2. Connect your GitHub repository
+3. Select "Web Service"
+4. Use these settings:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `python app.py`
+   - Python Version: 3.11
+
+### Option 4: Netlify (Static Version Only)
+For a static version without news search functionality:
+1. Run: `python build_static.py`
+2. Deploy the `static_site` folder to Netlify
 
 ## Usage
 
