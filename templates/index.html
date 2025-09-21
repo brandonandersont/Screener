@@ -19,7 +19,6 @@
     <nav class="nav-bar">
       <button class="nav-btn active" data-section="brokers">Broker Search</button>
       <button class="nav-btn" data-section="news">Berita Saham</button>
-      <button class="nav-btn" data-section="stocks">Daftar Saham</button>
     </nav>
 
     <!-- Broker Search Section -->
@@ -235,41 +234,6 @@
       </div>
     </section>
 
-    <!-- Daftar Saham Section -->
-    <section id="stocks-section" class="content-section">
-      <div class="section-header">
-        <h2>Daftar Saham</h2>
-        <p class="section-sub">Daftar lengkap saham yang terdaftar di Bursa Efek Indonesia</p>
-      </div>
-
-      <div class="search-container">
-        <label class="search">
-          <input id="stockSearch" type="search" placeholder="Cari saham… e.g., 'ANTM', 'Astra', 'Bank'" aria-label="Search stocks" />
-        </label>
-      </div>
-
-      <div class="table-wrap" aria-live="polite">
-        <table id="stocks">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Kode Saham</th>
-              <th scope="col">Nama Perusahaan</th>
-              <th scope="col">Tanggal Pencatatan</th>
-            </tr>
-          </thead>
-          <tbody id="stocksTableBody">
-            <!-- Stock data will be loaded dynamically -->
-          </tbody>
-        </table>
-      </div>
-
-      <div class="pagination" id="pagination" style="display: none;">
-        <button id="prevPage" class="btn">Previous</button>
-        <span id="pageInfo">Page 1 of 1</span>
-        <button id="nextPage" class="btn">Next</button>
-      </div>
-    </section>
 
     <footer class="foot">
       <small>Note: Kategori bersifat indikatif—beberapa broker melayani ritel & institusi sekaligus; "Asing" mengacu pada afiliasi grup internasional.</small>
@@ -292,20 +256,10 @@
     const newsResults = document.getElementById('newsResults');
     const newsContent = document.getElementById('newsContent');
 
-    // Stock Search Elements
-    const stockSearchInput = document.getElementById('stockSearch');
-    const stocksTableBody = document.getElementById('stocksTableBody');
-    const pagination = document.getElementById('pagination');
-    const prevPageBtn = document.getElementById('prevPage');
-    const nextPageBtn = document.getElementById('nextPage');
-    const pageInfo = document.getElementById('pageInfo');
 
 
     // State
     const activeFilters = new Set(); // ritel / asing / institusi / bumn
-    let currentStockPage = 1;
-    let currentStockQuery = '';
-    let stockTotalPages = 1;
 
     // Search handler
     function applyFilters() {
@@ -502,56 +456,6 @@
       newsContent.innerHTML = html;
     }
 
-    // Stock search functionality
-    async function loadStocks(page = 1, query = '') {
-      try {
-        const params = new URLSearchParams({
-          page: page,
-          page_size: 50,
-          query: query
-        });
-        
-        const response = await fetch(`/api/stocks?${params}`);
-        const data = await response.json();
-        
-        // Update table
-        stocksTableBody.innerHTML = '';
-        data.items.forEach((stock, index) => {
-          const row = document.createElement('tr');
-          const rowNumber = (page - 1) * 50 + index + 1;
-          row.innerHTML = `
-            <td>${rowNumber}</td>
-            <td>${stock.code}</td>
-            <td>${stock.name}</td>
-            <td>${stock.date}</td>
-          `;
-          stocksTableBody.appendChild(row);
-        });
-        
-        // Update pagination
-        stockTotalPages = Math.ceil(data.total / 50);
-        currentStockPage = page;
-        currentStockQuery = query;
-        
-        if (stockTotalPages > 1) {
-          pagination.style.display = 'flex';
-          pageInfo.textContent = `Page ${page} of ${stockTotalPages}`;
-          prevPageBtn.disabled = page <= 1;
-          nextPageBtn.disabled = page >= stockTotalPages;
-        } else {
-          pagination.style.display = 'none';
-        }
-        
-      } catch (error) {
-        console.error('Error loading stocks:', error);
-        stocksTableBody.innerHTML = '<tr><td colspan="4">Error loading data</td></tr>';
-      }
-    }
-
-    function searchStocks() {
-      const query = stockSearchInput.value.trim();
-      loadStocks(1, query);
-    }
 
     // Event listeners
     searchNewsBtn.addEventListener('click', searchNews);
@@ -561,18 +465,6 @@
       }
     });
 
-    // Stock search event listeners
-    stockSearchInput.addEventListener('input', searchStocks);
-    prevPageBtn.addEventListener('click', () => {
-      if (currentStockPage > 1) {
-        loadStocks(currentStockPage - 1, currentStockQuery);
-      }
-    });
-    nextPageBtn.addEventListener('click', () => {
-      if (currentStockPage < stockTotalPages) {
-        loadStocks(currentStockPage + 1, currentStockQuery);
-      }
-    });
 
   </script>
 </body>
