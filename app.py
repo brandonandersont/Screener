@@ -14,11 +14,16 @@ from sources.kontan import Kontan
 app = Flask(__name__)
 
 # Initialize news scrapers
-cnbcindonesia = CNBCIndonesia()
-detikfinance = DetikFinance()
-emitennews = EmitenNews()
-idxchannel = IDXChannel()
-kontan = Kontan()
+try:
+    cnbcindonesia = CNBCIndonesia()
+    detikfinance = DetikFinance()
+    emitennews = EmitenNews()
+    idxchannel = IDXChannel()
+    kontan = Kontan()
+    scrapers_initialized = True
+except Exception as e:
+    print(f"Warning: Failed to initialize news scrapers: {e}")
+    scrapers_initialized = False
 
 @app.route('/')
 def index():
@@ -31,6 +36,9 @@ def static_files(filename):
 @app.route('/api/news', methods=['POST'])
 def search_news():
     try:
+        if not scrapers_initialized:
+            return jsonify({'error': 'News scrapers not available'}), 503
+        
         data = request.get_json()
         keyword = data.get('keyword', '').strip()
         
@@ -56,4 +64,6 @@ def search_news():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    app.run(debug=debug, host='0.0.0.0', port=port)
