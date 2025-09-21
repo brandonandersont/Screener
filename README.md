@@ -1,45 +1,60 @@
-# IDX Broker Codes Screener
+# Screener with News Integration
 
-A simple, responsive web application for searching and filtering Indonesian stock broker codes. This tool helps users quickly find broker information by code or name, with filtering capabilities by category.
+This application combines a broker screener with news scraping functionality.
 
 ## Features
 
-- **Search**: Find brokers by code or name
-- **Filter by Category**: 
-  - Ritel (Retail)
-  - Asing (Foreign)
-  - Institusi (Institutional)
-- **Responsive Design**: Works on desktop and mobile devices
-- **Accessibility**: Built with ARIA labels and semantic HTML
+- **Broker Search**: Search and filter Indonesian stock brokers by code, name, or category
+- **News Search**: Search for financial news across multiple Indonesian news sources:
+  - CNBC Indonesia
+  - Detik Finance
+  - Emiten News
+  - IDX Channel
+  - Kontan
+
+## Setup
+
+1. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+
+3. Open your browser and go to `http://localhost:5000`
 
 ## Usage
 
-1. Open `index.html` in your web browser
-2. Use the search box to find brokers by code or name
-3. Click category buttons to filter by broker type
-4. Combine search and filters for precise results
+### Broker Search
+- Use the "Broker Search" section to search for brokers by code or name
+- Filter by category using the filter buttons (Ritel, Asing, Institusi)
 
-## Categories
+### News Search
+- Use the "News Search" section to search for financial news
+- Enter a keyword (e.g., "Bank BCA", "Telkomsel")
+- Click "Search News" or press Enter
+- Results will be displayed organized by news source
 
-- **Ritel**: Retail brokers serving individual investors
-- **Asing**: Foreign brokers with international affiliations
-- **Institusi**: Institutional brokers serving large organizations
+## File Structure
 
-## Technology
+```
+Screener/
+├── app.py                 # Flask web application
+├── requirements.txt       # Python dependencies
+├── styles.css            # CSS styles
+├── templates/
+│   └── index.html        # Main HTML template
+└── news scraper copy/    # News scraping modules
+    ├── main.py
+    └── sources/          # Individual news source scrapers
+```
 
-- Pure HTML, CSS, and JavaScript
-- No external dependencies
-- Responsive CSS Grid and Flexbox
-- Modern ES6+ JavaScript features
+## API Endpoints
 
-## Deployment
-
-This project is automatically deployed to GitHub Pages when changes are pushed to the main branch.
-
-## Contributing
-
-Feel free to submit issues or pull requests to improve the broker database or add new features.
-
-## License
-
-This project is open source and available under the MIT License.
+- `GET /` - Main application page
+- `POST /api/news` - Search for news by keyword
+  - Request body: `{"keyword": "search term"}`
+  - Returns: JSON with news results from all sources

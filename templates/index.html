@@ -3,44 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Screener - Test Update</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Bandarmology</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 <body>
   <main class="wrap">
     <header class="header">
-      <h1>IDX Broker Codes</h1>
+      <h1>Screener</h1>
       <p class="sub">
-        Search by code or name. Category tags:
-        <span class="tag ritel">Ritel</span>
-        <span class="tag asing">Asing</span>
-        <span class="tag institusi">Institusi</span>
+        Indonesian Stock Broker & Financial News Search Platform
       </p>
-
-      <!-- Search -->
-      <label class="search">
-        <input id="q" type="search" placeholder="Search… e.g., ‘YP’, ‘Mirae’, ‘Ajaib’" aria-label="Search brokers" />
-      </label>
-
-      <!-- Filters -->
-      <div class="filters" role="group" aria-label="Filter by category">
-        <button class="btn chip active" data-filter="all" aria-pressed="true">All</button>
-        <button class="btn chip" data-filter="ritel" aria-pressed="false">Ritel</button>
-        <button class="btn chip" data-filter="asing" aria-pressed="false">Asing</button>
-        <button class="btn chip" data-filter="institusi" aria-pressed="false">Institusi</button>
-      </div>
     </header>
 
-    <section class="table-wrap" aria-live="polite">
-      <table id="brokers">
-        <thead>
-          <tr>
-            <th scope="col">Code</th>
-            <th scope="col">Broker Name</th>
-            <th scope="col">Category</th>
-          </tr>
-        </thead>
-        <tbody>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <button class="nav-btn active" data-section="brokers">Broker Search</button>
+      <button class="nav-btn" data-section="news">News Search</button>
+    </nav>
+
+    <!-- Broker Search Section -->
+    <section id="brokers-section" class="content-section active">
+      <div class="section-header">
+        <h2>Broker Search</h2>
+        <p class="section-sub">Search by code or name. Category tags:
+          <span class="tag ritel">Ritel</span>
+          <span class="tag asing">Asing</span>
+          <span class="tag institusi">Institusi</span>
+        </p>
+      </div>
+
+      <div class="search-container">
+        <label class="search">
+          <input id="q" type="search" placeholder="Search… e.g., 'YP', 'Mirae', 'Ajaib'" aria-label="Search brokers" />
+        </label>
+
+        <!-- Filters -->
+        <div class="filters" role="group" aria-label="Filter by category">
+          <button class="btn chip active" data-filter="all" aria-pressed="true">All</button>
+          <button class="btn chip" data-filter="ritel" aria-pressed="false">Ritel</button>
+          <button class="btn chip" data-filter="asing" aria-pressed="false">Asing</button>
+          <button class="btn chip" data-filter="institusi" aria-pressed="false">Institusi</button>
+        </div>
+      </div>
+
+      <div class="table-wrap" aria-live="polite">
+        <table id="brokers">
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Broker Name</th>
+              <th scope="col">Category</th>
+            </tr>
+          </thead>
+          <tbody>
           <!-- A -->
           <tr data-category="institusi"><td>AD</td><td>OSO Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>AF</td><td>Harita Kencana Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -48,6 +63,7 @@
           <tr data-category="asing"><td>AH</td><td>Shinhan Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="asing"><td>AI</td><td>UOB Kay Hian Sekuritas</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="asing"><td>AK</td><td>UBS Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
+          <tr data-category="institusi"><td>AN</td><td>Wanteg Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>AO</td><td>Erdikha Elit Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>AP</td><td>Pacific Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>AR</td><td>Bina Artha Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -55,7 +71,9 @@
           <tr data-category="institusi"><td>AZ</td><td>Sucor Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- B -->
+          <tr data-category="institusi"><td>BB</td><td>Verdhana Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>BF</td><td>Inti Fikasa Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi"><td>BR</td><td>Trust Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="asing"><td>BK</td><td>JP. Morgan Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="asing"><td>BQ</td><td>Korea Investment &amp; Securities Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="institusi"><td>BS</td><td>Equity Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -83,7 +101,9 @@
           <tr data-category="institusi"><td>ES</td><td>Ekopital Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- F -->
+          <tr data-category="institusi"><td>FO</td><td>Forte Global Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>FM</td><td>Onix Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi"><td>FS</td><td>Yuanta Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="ritel"><td>FZ</td><td>Waterfront Sekuritas Indonesia</td><td><span class="tag ritel">Ritel</span></td></tr>
 
           <!-- G -->
@@ -97,6 +117,7 @@
           <tr data-category="institusi"><td>HP</td><td>Henan Putihrai Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- I -->
+          <tr data-category="institusi"><td>IC</td><td>Integrity Capital Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>ID</td><td>Anugerah Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="ritel"><td>IF</td><td>Samuel Sekuritas Indonesia</td><td><span class="tag ritel">Ritel</span></td></tr>
           <tr data-category="institusi"><td>IH</td><td>Pacific 2000 Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -120,6 +141,7 @@
 
           <!-- M -->
           <tr data-category="institusi"><td>MG</td><td>Semesta Indovest Securities</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi"><td>MI</td><td>Victoria Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>MK</td><td>Ekuator Swarna Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="asing"><td>MS</td><td>Morgan Stanley Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="institusi"><td>MU</td><td>Minna Padi Investama Sekuritas Tbk</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -150,16 +172,19 @@
           <tr data-category="institusi"><td>RF</td><td>Buana Capital Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>RG</td><td>Profindo Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>RO</td><td>Nilai Inti Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi"><td>RS</td><td>Yulie Sekuritas Indonesia Tbk.</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="asing"><td>RX</td><td>Macquarie Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
 
           <!-- S -->
           <tr data-category="institusi"><td>SA</td><td>Bosowa Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>SC</td><td>IMG Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
+          <tr data-category="institusi"><td>SF</td><td>Surya Fajar Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>SH</td><td>Artha Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="ritel institusi"><td>SQ</td><td>BCA Sekuritas</td><td><span class="tag ritel">Ritel</span> <span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>SS</td><td>Supra Sekuritas Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
 
           <!-- T -->
+          <tr data-category="institusi"><td>TF</td><td>Universal Broker Indonesia Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="asing"><td>TP</td><td>OCBC Sekuritas Indonesia</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="institusi"><td>TS</td><td>Dwidana Sakti Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
           <tr data-category="institusi"><td>TX</td><td>Dhanawibawa Securities Indonesia</td><td><span class="tag institusi">Institusi</span></td></tr>
@@ -179,20 +204,54 @@
           <!-- Z -->
           <tr data-category="asing"><td>ZP</td><td>Maybank Kim Eng Sekuritas</td><td><span class="tag asing">Asing</span></td></tr>
           <tr data-category="institusi"><td>ZR</td><td>Bumiputera Sekuritas</td><td><span class="tag institusi">Institusi</span></td></tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- News Search Section -->
+    <section id="news-section" class="content-section">
+      <div class="section-header">
+        <h2>News Search</h2>
+        <p class="section-sub">Search for financial news across multiple Indonesian news sources</p>
+      </div>
+
+      <div class="search-container">
+        <label class="search">
+          <input id="newsKeyword" type="search" placeholder="Search news… e.g., 'Bank BCA', 'Telkomsel'" aria-label="Search news" />
+        </label>
+        <button id="searchNews" class="btn chip search-btn">Search News</button>
+      </div>
+
+      <!-- News Results -->
+      <div class="news-results" id="newsResults" style="display: none;">
+        <h3>News Results</h3>
+        <div id="newsContent">
+          <!-- News results will be populated here -->
+        </div>
+      </div>
     </section>
 
     <footer class="foot">
-      <small>Note: Kategori bersifat indikatif—beberapa broker melayani ritel & institusi sekaligus; “Asing” mengacu pada afiliasi grup internasional.</small>
+      <small>Note: Kategori bersifat indikatif—beberapa broker melayani ritel & institusi sekaligus; "Asing" mengacu pada afiliasi grup internasional.</small>
     </footer>
   </main>
 
   <script>
-    // Elements
+    // Navigation Elements
+    const navBtns = [...document.querySelectorAll('.nav-btn')];
+    const contentSections = [...document.querySelectorAll('.content-section')];
+
+    // Broker Search Elements
     const input = document.getElementById('q');
     const rows = [...document.querySelectorAll('#brokers tbody tr')];
     const filterBtns = [...document.querySelectorAll('.filters .btn')];
+
+    // News Search Elements
+    const newsKeywordInput = document.getElementById('newsKeyword');
+    const searchNewsBtn = document.getElementById('searchNews');
+    const newsResults = document.getElementById('newsResults');
+    const newsContent = document.getElementById('newsContent');
 
     // State
     const activeFilters = new Set(); // ritel / asing / institusi
@@ -252,6 +311,153 @@
 
     // Initial render
     applyFilters();
+
+    // Navigation functionality
+    function switchSection(targetSection) {
+      // Update navigation buttons
+      navBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.section === targetSection);
+      });
+
+      // Show/hide content sections
+      contentSections.forEach(section => {
+        section.classList.toggle('active', section.id === `${targetSection}-section`);
+      });
+    }
+
+    // Navigation event listeners
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchSection(btn.dataset.section);
+      });
+    });
+
+    function searchNews() {
+      const keyword = newsKeywordInput.value.trim();
+      if (!keyword) {
+        alert('Please enter a keyword to search');
+        return;
+      }
+
+      // Show loading state
+      searchNewsBtn.textContent = 'Searching...';
+      searchNewsBtn.disabled = true;
+      newsContent.innerHTML = '<p>Searching for news...</p>';
+      newsResults.style.display = 'block';
+
+      // Make API request
+      fetch('/api/news', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ keyword: keyword })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          displayNewsResults(data.results);
+        } else {
+          newsContent.innerHTML = `<p>Error: ${data.error}</p>`;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        newsContent.innerHTML = `<p>Error searching for news: ${error.message}</p>`;
+      })
+      .finally(() => {
+        searchNewsBtn.textContent = 'Search News';
+        searchNewsBtn.disabled = false;
+      });
+    }
+
+    function displayNewsResults(results) {
+      let html = '';
+      
+      // CNBC Indonesia
+      if (results.cnbc && results.cnbc.length > 0) {
+        html += '<div class="news-source"><h3>CNBC Indonesia</h3>';
+        results.cnbc.forEach(article => {
+          html += `
+            <div class="news-item">
+              <h4><a href="${article.link}" target="_blank">${article.title}</a></h4>
+              <p class="news-date">${article.date}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+
+      // Detik Finance
+      if (results.detikfinance && results.detikfinance.length > 0) {
+        html += '<div class="news-source"><h3>Detik Finance</h3>';
+        results.detikfinance.forEach(article => {
+          html += `
+            <div class="news-item">
+              <h4><a href="${article.link}" target="_blank">${article.title}</a></h4>
+              <p class="news-date">${article.date}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+
+      // Emiten News
+      if (results.emitennews && results.emitennews.length > 0) {
+        html += '<div class="news-source"><h3>Emiten News</h3>';
+        results.emitennews.forEach(article => {
+          html += `
+            <div class="news-item">
+              <h4><a href="${article.link}" target="_blank">${article.title}</a></h4>
+              <p class="news-date">${article.date}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+
+      // IDX Channel
+      if (results.idxchannel && results.idxchannel.length > 0) {
+        html += '<div class="news-source"><h3>IDX Channel</h3>';
+        results.idxchannel.forEach(article => {
+          html += `
+            <div class="news-item">
+              <h4><a href="${article.link}" target="_blank">${article.title}</a></h4>
+              <p class="news-date">${article.date}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+
+      // Kontan
+      if (results.kontan && results.kontan.length > 0) {
+        html += '<div class="news-source"><h3>Kontan</h3>';
+        results.kontan.forEach(article => {
+          html += `
+            <div class="news-item">
+              <h4><a href="${article.link}" target="_blank">${article.title}</a></h4>
+              <p class="news-date">${article.date}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+      }
+
+      if (html === '') {
+        html = '<p>No news found for the given keyword.</p>';
+      }
+
+      newsContent.innerHTML = html;
+    }
+
+    // Event listeners
+    searchNewsBtn.addEventListener('click', searchNews);
+    newsKeywordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchNews();
+      }
+    });
   </script>
 </body>
 </html>

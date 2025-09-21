@@ -29,10 +29,74 @@
   }
   
   .wrap{max-width:980px;margin:40px auto 80px;padding:0 16px}
-  .header{margin-bottom:16px}
+  .header{margin-bottom:24px}
   
   h1{margin:0 0 6px;font-size:clamp(22px,3vw,30px)}
   .sub{margin:0;color:var(--muted);font-size:14px}
+
+  /* Navigation Bar */
+  .nav-bar{
+    display:flex;
+    gap:4px;
+    margin-bottom:24px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:4px;
+  }
+
+  .nav-btn{
+    flex:1;
+    padding:12px 16px;
+    border:none;
+    background:transparent;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:500;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all 0.2s ease;
+  }
+
+  .nav-btn:hover{
+    background:var(--btn);
+    color:var(--btn-text);
+  }
+
+  .nav-btn.active{
+    background:var(--btn-active);
+    color:var(--btn-active-text);
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  /* Content Sections */
+  .content-section{
+    display:none;
+  }
+
+  .content-section.active{
+    display:block;
+  }
+
+  .section-header{
+    margin-bottom:20px;
+  }
+
+  .section-header h2{
+    margin:0 0 8px;
+    font-size:20px;
+    color:var(--text);
+  }
+
+  .section-sub{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .search-container{
+    margin-bottom:20px;
+  }
   
   .search{display:block;margin-top:16px}
   .search input{
@@ -98,4 +162,68 @@
   .tag.institusi{background:var(--pill-institusi);color:var(--pill-institusi-text)}
   
   .foot{margin-top:14px;color:var(--muted);font-size:12px}
+
+  /* Search Button Styles */
+  .search-btn {
+    margin-top: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .news-results {
+    margin-top: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .news-results h3 {
+    margin: 0 0 16px;
+    font-size: 18px;
+    color: var(--text);
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 8px;
+  }
+
+  .news-source {
+    margin-bottom: 24px;
+  }
+
+  .news-source h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--text);
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 8px;
+  }
+
+  .news-item {
+    margin-bottom: 12px;
+    padding: 12px;
+    background: #fafafa;
+    border-radius: 8px;
+    border-left: 3px solid var(--btn-active);
+  }
+
+  .news-item h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+
+  .news-item h4 a {
+    color: var(--btn-active);
+    text-decoration: none;
+  }
+
+  .news-item h4 a:hover {
+    text-decoration: underline;
+  }
+
+  .news-date {
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
   
